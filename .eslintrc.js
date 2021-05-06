@@ -19,9 +19,11 @@ module.exports = {
         jest: true,
         node: true,
     },
-    // Airbnb's ESLint config requires this
     parserOptions: {
+        sourceType: 'module',
         project: './tsconfig.json',
+        tsconfigRootDir: __dirname,
+        createDefaultProgram: true,
     },
     rules: {
         // Include .prettierrc.js rules
@@ -30,5 +32,26 @@ module.exports = {
         'react/prop-types': 'off',
         // We don't want unused vars
         '@typescript-eslint/no-unused-vars': ['error'],
+        'import/no-cycle': 'off',
+        'no-console': 'off',
+        'react/jsx-props-no-spreading': 'off',
+        '@typescript-eslint/ban-ts-comment': 'off',
+        'import/newline-after-import': 'off',
+        'jsx-a11y/label-has-associated-control': [
+            'error',
+            {
+                required: {
+                    some: ['nesting', 'id'],
+                },
+            },
+        ],
+        'jsx-a11y/label-has-for': [
+            'error',
+            {
+                required: {
+                    some: ['nesting', 'id'],
+                },
+            },
+        ],
     },
 };
